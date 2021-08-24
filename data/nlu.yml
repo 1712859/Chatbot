@@ -1,0 +1,59 @@
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey!
+    - Hallo
+    - Good day
+    - Good morning
+- intent: covid
+  examples: |
+    - Covid là bệnh gì?
+    - Covid?
+    - StartCovid 2 là gì?
+
+- intent: bot_check
+  examples: |
+    - Bạn là ai?
+    - Có phải bạn là người máy?
+    - Bạn là chatbot hả? 
+    - are you a bot?
+    - bạn là?
+
+- intent: covid_bieu_hien
+  examples: |
+    - covid?
+    - Biểu hiện bệnh covid?
+    - triệu chứng bệnh covid?
+
+- intent: vim_ban_b_bieu_hien
+  examples: |
+    - Biểu hiện bệnh viem gan b?
+    - triệu chứng bệnh viem gan b?
+
+- intent: hoi_bieu_hien
+  examples: |
+    - Biểu hiện
+    - triệu chứng
+
+- intent: hoi_ten
+  examples: |
+    - bạn tên gì?
+    - what you name?
+    - you name?
+    - tên bạn là gi?
+    - tên bạn ?
+
+- intent: tra_loi_ten
+  examples: |
+    - [Mình](curt_sex) tên là [Thống](curt_name)
+    - [Mình](curt_sex) là [Thống](curt_name)
+    - [Chú](curt_sex) là [tu anh](curt_name)
+    - [cô](curt_sex) [vân](curt_name)
+    - [chị](curt_sex) tên là [Thảo](curt_name)
+    - [mình](curt_sex) tên [tú](curt_name)
+
+- intent: hoi_cach_chi_benh
+  examples: |
+    - tôi bị [ho](ten_benh), cách trị cách như thế nào
+    - cách trị bệnh [ho](ten_benh) 

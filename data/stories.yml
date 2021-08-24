@@ -1,0 +1,43 @@
+stories:
+- story: greet and subscribe
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_hoi_ten
+  - intent: tra_loi_ten
+  - action: utter_tra_loi_ten
+- story: covid 
+  steps:
+  - intent: covid 
+  - action: utter_covid_answer
+- story: are you a bot
+  steps:
+  - intent: bot_check
+  - action: utter_bot_answer
+- story: covid trieu chung
+  steps:
+  - intent: covid_bieu_hien
+  - action: utter_covid_trieu_chung1
+  - action: utter_covid_trieu_chung2
+- story: vim gan b trieu chung
+  steps:
+  - intent: vim_ban_b_bieu_hien
+  - action: utter_vim_gan_b_trieu_chung
+
+- story: sua cho phap hoi bieu hien benh
+  steps:
+  - intent: hoi_bieu_hien
+  - action: utter_hoi_bieu_hien
+
+- story: tra loi ten
+  steps:
+  - intent: hoi_ten
+  - action: utter_bot_answer
+  - action: utter_hoi_ten
+  - intent: tra_loi_ten
+  - action: utter_tra_loi_ten
+
+- story: hoi cach tri benh
+  steps:
+  - intent: hoi_cach_chi_benh
+  - action: utter_hoi_cach_tri

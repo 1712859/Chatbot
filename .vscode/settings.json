@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "D:\\anacoda\\python.exe",
+    "python.condaPath": "D:\\anacoda\\Scripts\\conda.exe",
+    "terminal.integrated.automationShell.windows": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\Anaconda Powershell Prompt (anacoda).exe"
+
+}
