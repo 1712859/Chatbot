@@ -1,7 +1,5 @@
 version: '2.0'
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+
 intents:
 - greet
 - inform
@@ -9,26 +7,28 @@ intents:
 - covid
 - bot_check
 - hoi_bieu_hien
-- vim_ban_b_bieu_hien
-- covid_bieu_hien
-- tra_loi_ten
+- bieu_hien:
+    use_entities:
+    - ten_benh
+- tra_loi_ten:
+    use_entities:
+    - curt_name
 - hoi_ten
-- hoi_cach_chi_benh
+- hoi_cach_chi_benh:
+    use_entities:
+    - ten_benh
+
 entities:
 - curt_name
-- curt_sex
 - ten_benh
 
 slots:
-  curt_sex:
-    auto_fill: true
-    type: text
   curt_name:
-    auto_fill: true
     type: text
+    auto_fill: true
   ten_benh:
-    auto_fill: true
     type: text
+    auto_fill: true
 
 responses:
   utter_greet:
@@ -36,23 +36,16 @@ responses:
       Xin chào
   - text: |
       Hi!
-  utter_covid_answer:
-  - text: |
-      Vi-rút corona là một họ vi rút lớn, nhưng chỉ có một số loại được biết là thường gây nhiễm trùng ở người, với những loại vi-rút corona phổ biến ở người này thường gây ra bệnh hô hấp nhẹ đến trung bình (như cảm lạnh thông thường). Các vi-rút corona mới hơn ở người mới sau này, như Hội Chứng Hô Hấp Cấp Tính Nặng (SARS), Hội Chứng Hô Hấp Trung Đông (MERS) và COVID-19 có thể gây ra các triệu chứng nghiêm trọng hơn. COVID-19 ban đầu được cho là đã lây lan từ động vật sang người, nhưng hiện bệnh đã lây lan từ người sang người
   utter_bot_answer:
   - text: "I'm a bot, create by Tu!"
   - text: "Xin chào mình là trợ lý bác sĩ. Mình là bot!"
-  utter_covid_trieu_chung1:
-  - text: "Các triệu chứng thường gặp nhất: \n sốt \n ho khan\n mệt mỏi"
-  utter_covid_trieu_chung2:
-  - text: "Các triệu chứng ít gặp hơn: \n đau nhức \n đau họng \n tiêu chảy \nviêm kết mạc \n đau đầu \n mất vị giác hoặc khứu giác \n da nổi mẩn hay ngón tay hoặc ngón chân bị tấy đỏ hoặc tím tái"
-  utter_vim_gan_b_trieu_chung:
-  - text: "Tuy nhiên, một số người, thường là trẻ nhỏ có thể không bộc lộ bất kỳ triệu chứng nào, thế nên rất khó phát hiện bệnh sớm. Các dấu hiệu và triệu chứng viêm gan B có thể bao gồm:\nSốt nhẹ (trên 38 độ) \nĂn không ngon miệng\nBuồn nôn và ói mửa\nĐau bụng, dễ bị tiêu chảy\nCơ thể mệt mỏi kéo dài\nNước tiểu đậm\nĐau nhức xương khớp\nĐau phần dưới sườn phải\nRối loạn tiêu hóa\nVàng da và vàng mắt\nXuất huyết dưới da\nBụng bị sưng và có cảm giác chướng"
   utter_hoi_bieu_hien:
-  - text: "Bạn {curt_name} vui lòng thêm tên bệnh phía sau. vd: Biểu hiện bệnh covid "
+  - text: "Bạn vui lòng thêm tên bệnh phía sau. vd: Biểu hiện bệnh covid "
     buttons:
-      - title: "Thử"
-        payload: "/covid_bieu_hien"
+      - title: "covid"
+        payload: "/bieu_hien"
+        entities:
+        - ten_benh: "covid"
   utter_tra_loi_ten:
   - text: "Xin chào {curt_name}."
   utter_hoi_ten:
@@ -60,20 +53,21 @@ responses:
   - text: "Mọi người thường gọi bạn là gì?"
   utter_hoi_cach_tri:
   - text: "bạn bị {ten_benh} hả?"
+  utter_show_benh:
+  - text: "Thông tin biểu hiện bệnh {ten_benh}:"
+
 actions:
 - '...'
 - utter_greet
 - utter_bot_answer
 - utter_covid_answer
-- utter_covid_trieu_chung1
-- utter_covid_trieu_chung2
-- utter_vim_gan_b_trieu_chung
 - utter_hoi_bieu_hien
 - utter_tra_loi_ten
 - utter_hoi_ten
 - utter_hoi_cach_tri
-forms:
-  newsletter_form:
-    required_slots:
-      email:
-      - type: from_text
+- action_bieu_hien
+- utter_show_benh
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
